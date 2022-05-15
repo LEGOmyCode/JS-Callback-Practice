@@ -2,7 +2,29 @@ const inventory = newInventory()
 move(inventory).to(0, 0)
 
 const character = newImage('assets/green-character/static.gif')
-let direction = null;
+
+function handleDirectionChange(direction){
+    if(direction === null){
+        character.src = 'assets/green-character/static.gif'
+    }
+    if(direction === 'west'){
+        character.src = 'assets/green-character/west.gif'
+    }
+    if(direction === 'north'){
+        character.src = 'assets/green-character/north.gif'
+    }
+    if(direction === 'east'){
+        character.src = 'assets/green-character/east.gif'
+    }
+    if(direction === 'south'){
+        character.src = 'assets/green-character/south.gif'
+    }
+}
+
+move(character).withArrowKeys(100, 250, handleDirectionChange)
+
+
+/*let direction = null;
 let x = 100;
 let y = 250;
 setInterval(function(){ 
@@ -40,7 +62,7 @@ document.addEventListener('keydown', function(e){
 })
 document.addEventListener('keyup', function(e){
     direction = null
-})
+})*/
 
 
                                    
